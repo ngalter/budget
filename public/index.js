@@ -136,8 +136,8 @@ function sendTransaction(isAdding) {
   })
     .catch(err => {
     // fetch failed, so save in indexed db
-    errorEl.innerText = "Transaction cannot be recorded while you are offline."
-    // saveRecord(transaction);
+    errorEl.innerText = "Transaction cannot be posted while you are offline."
+    saveRecord(transaction);
 
     // clear form
     nameEl.value = "";
