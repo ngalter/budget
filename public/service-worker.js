@@ -11,7 +11,6 @@ self.addEventListener("install", function(evt) {
       return cache.addAll(FILES_TO_CACHE);
     })
   );
-
   self.skipWaiting();
 });
 
@@ -29,30 +28,45 @@ self.addEventListener("activate", function(evt) {
       );
     })
   );
-
   self.clients.claim();
 });
 
-// fetch
-self.addEventListener("fetch", function(evt) {
-  if (evt.request.url.includes("/api/transaction")) {
-    evt.respondWith(
-      caches.open(DATA_CACHE_NAME).then(cache => {
-        return fetch(evt.request)
-          .then(response => {
-            // If the response was good, clone it and store it in the cache.
-            if (response.status === 200) {
-              cache.put(evt.request.url, response.clone());
-            }
+self.addEventListener('fetch', (event) => {
+  event.respondWith(
+    caches.match(event.request).then((resp) => {
+      return resp || fetch(event.request).then((response) => {
+        let responseClone = response.clone();
+        caches.open('v1').then((cache) => {
+          cache.put(event.request, responseClone);
+        });
 
-            return response;
-          })
-          .catch(err => {
-            // Network request failed, try to get it from the cache.
-            return cache.match(evt.request);
-          });
-      }).catch(err => console.log(err))
-    );
+        return response;
+      });
+    }).catch(() => {
+      return caches.match("./icon-192x192.png");
+    })
+  );
+});
+// // fetch
+// self.addEventListener("fetch", function(evt) {
+//   if (evt.request.url.includes("/api/transaction")) {
+//     evt.respondWith(
+//       caches.open(DATA_CACHE_NAME).then(cache => {
+//         return fetch(evt.request)
+//           .then(response => {
+//             // If the response was good, clone it and store it in the cache.
+//             if (response.status === 200) {
+//               cache.put(evt.request.url, response.clone());
+//             }
 
-    return;
-}});
+//             return response;
+//           })
+//           .catch(err => {
+//             // Network request failed, try to get it from the cache.
+//             return cache.match(evt.request);
+//           });
+//       }).catch(err => console.log(err))
+//     );
+
+//     return;
+// }});
