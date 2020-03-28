@@ -1,3 +1,5 @@
+<img width="1000" alt="budget tracker" src="https://github.com/ngalter/budget/blob/master/budget.png">
+
 # Budget Tracker
  The Budget Tracker application tracks additions to and deductions from a balance.  It allows a user to track expenses and follow a budget.  The additional functionality included for this homework is the ability to continue to use the application without an internet connection.
 
