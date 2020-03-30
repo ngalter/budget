@@ -19,4 +19,4 @@ Giving users a fast and easy way to track their money is important, but allowing
 ## Progressive Web App
 Budget Tracker is developed as a progressive web app and is installable on your device. 
 
-<img width="450" alt="budget tracker" src="https://github.com/ngalter/budget/blob/master/budget-icon.png">
+<img width="450" alt="budget tracker" src="https://github.com/ngalter/budget/blob/master/budget-icon.jpg">
