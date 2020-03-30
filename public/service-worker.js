@@ -6,6 +6,7 @@ const FILES_TO_CACHE = [
   "/icons/icon-72x72.png",
   "/icons/icon-96x96.png",
   "/icons/icon-128x128.png",
+  "/icons/icon-180x180.png",
   "/icons/icon-192x192.png",
   "/icons/icon-512x512.png",
   "styles.css"
