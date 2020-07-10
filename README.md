@@ -11,7 +11,7 @@ I WANT to be able to track my withdrawals and deposits with or without a data/in
 SO THAT my account balance is accurate when I am traveling.
 
 ## Specifications 
-The Budget Tracker application uses Express, Node.js, MongoDB, Mongoose and indexedDB. It is deployed on Heroku at https://cash-tracker.herokuapp.com. The front-end code is written in HTML, CSS, Bootstrap and JavaScript.
+The Budget Tracker application uses Express, Node.js, MongoDB, Mongoose and indexedDB. The front-end code is written in HTML, CSS, Bootstrap and JavaScript.
 
 ## Business Context
 Giving users a fast and easy way to track their money is important, but allowing them to access that information anytime is even more important. Having offline functionality is paramount to our applications success.
